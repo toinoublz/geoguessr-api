@@ -3,13 +3,12 @@ This is a Geoguessr API client written in Python. It allows you to interact with
 To install the package, run the following command:
 
 ```
-pip install geoguessr-async
+pip install geoguessr-api
 ```
 
 Once the package is installed, you can create a client object by passing your NCFA cookie to the constructor:
 
 ```Python
-import asyncio
 from geoguessr_async import Geoguessr
 
 client = Geoguessr("your_ncfa_cookie")
@@ -20,7 +19,7 @@ client = Geoguessr("your_ncfa_cookie")
 You can then use the client object to get information about users, challenges, maps, and scores. For example, to get information about an user with his ID, you can use the following code:
 
 ```Python
-user = await client.get_user_infos(userId)
+user = client.get_user_infos(userId)
 ```
 
 The `Profile` object will contain information such as your username, country, and number of games played.
@@ -28,7 +27,7 @@ The `Profile` object will contain information such as your username, country, an
 To get information about a challenge, you can use the following code:
 
 ```Python
-challenge = await client.get_challenge_infos("https://geoguessr.com/challenge/xxxx")
+challenge = client.get_challenge_infos("https://geoguessr.com/challenge/xxxx")
 ```
 
 The `Challenge` object will contain information such as the challenge name, description, and time limit.
@@ -36,7 +35,7 @@ The `Challenge` object will contain information such as the challenge name, desc
 To get information about a map, you can use the following code:
 
 ```Python
-map = await client.get_map_infos("https://geoguessr.com/maps/xxxx")
+map = client.get_map_infos("https://geoguessr.com/maps/xxxx")
 ```
 
 The `Map` object will contain information such as the map name, size, and location.
@@ -44,7 +43,7 @@ The `Map` object will contain information such as the map name, size, and locati
 To get information about a score, you can use the following code:
 
 ```Python
-score = await client.get_challenge_score("https://geoguessr.com/challenge/xxxx")
+score = client.get_challenge_score("https://geoguessr.com/challenge/xxxx")
 ```
 
 The `Score` object will contain information such as the players' name, score, and time.
@@ -52,7 +51,7 @@ The `Score` object will contain information such as the players' name, score, an
 
 ### Example: Get results of a challenge as a list of dictionnaries
 ```Python
-score = await client.get_challenge_score("https://geoguessr.com/challenge/xxxx")
+score = client.get_challenge_score("https://geoguessr.com/challenge/xxxx")
 scores = []
 for s in score:
     d_player = {
